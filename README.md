@@ -12,3 +12,4 @@
 4- Click the "Start Game" button to start the game.
 
 5- Use the on-screen or physical keyboard and notice the effect if you guessed a letter correctly.
+Please note that the physical keyboard input will not be recorded unless a game is active.

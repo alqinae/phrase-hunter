@@ -3,8 +3,11 @@
  * app.js */
 const startGameButton = document.getElementById('btn__reset');
 const onscreenKeyboard = document.getElementById('qwerty');
-const game = new Game();
-startGameButton.addEventListener('click', () => game.startGame());
+let game;
+startGameButton.addEventListener('click', () => {
+    game = new Game();
+    game.startGame()
+});
 startGameButton.addEventListener('mouseenter', () => {
    startGameButton.style.transform = 'scale(2)';
 });
@@ -21,8 +24,10 @@ onscreenKeyboard.addEventListener('click', event => {
 });
 document.addEventListener('keyup', event => {
     const letter = event.key;
-    // Check if the key pressed is a letter. This will ignore numbers and special characters
-    if (/^[a-zA-z]$/.test(letter)) {
+    const overlay = document.getElementById('overlay');
+    // Check if the key pressed is a letter and the overlay is not hidden.
+    // This will ignore numbers and special characters. Also, when the game hasn't started, the input will be ignored.
+    if (/^[a-zA-z]$/.test(letter) && overlay.style.display === 'none') {
         document.querySelectorAll('.key').forEach(button => {
             if(button.textContent === letter) {
                 // If we found the corresponding button of the pressed key, we call the function handleInteraction

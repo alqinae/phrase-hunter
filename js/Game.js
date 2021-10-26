@@ -24,12 +24,13 @@ class Game {
             button.disabled = false;
             button.className = 'key';
         });
-        while (this.missed > 0) {
-            // Getting the first image with a source of a lost heart
-            const lostHeart = document.querySelector('img[src="images/lostHeart.png"]');
+        // Getting the first image with a source of a lost heart
+        let lostHeart = document.querySelector('img[src="images/lostHeart.png"]');
+        while (lostHeart) {
             // Reset it to a live heart
             lostHeart.src = "images/liveHeart.png";
-            this.missed--;
+            // Getting the first image with a source of a lost heart
+            lostHeart = document.querySelector('img[src="images/lostHeart.png"]');
         }
     }
 
